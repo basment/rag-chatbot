@@ -15,3 +15,13 @@ Thumbs.db
 # Env files
 .env
 *.env
+
+# epub Files
+.epub
+*.epub
+
+# Worker downloads
+worker/downloads/
+
+# Worker testing
+worker/testing/
