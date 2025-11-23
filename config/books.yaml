@@ -1,0 +1,64 @@
+books:
+
+  nahj_sermons:
+    book_id: "nahj_sermons"
+    title: "Nahj al-Balagha – Sermons"
+    author: "Imam Ali ibn Abi Talib"
+    compiler: "Al-Sharif al-Radi"
+    religion: "Islam"
+    tradition: "Shia"
+    language: "English (translated), Arabic (original)"
+    text_type: "sermons"
+    description: >
+      Part One of Nahj al-Balagha containing the sermons of Imam Ali.
+      This EPUB file includes sermon titles, Arabic text, English translation,
+      and structured section markers suitable for extraction.
+
+    ingestion:
+      file_type: "epub"
+      blob_path: "books/Nahjul Balagaha Sermons.epub"
+      section_detection: "heading_based"
+      section_types:
+        - sermon
+      expected_heading_patterns:
+        - "Sermon"
+      include_arabic: true       # or false if you want English-only embeddings
+      chunking:
+        method: "per_section"
+        max_chunk_size: 450       # token-level estimate
+        chunk_overlap: 80
+        clean_html: true
+        remove_page_numbers: true
+        remove_decorative_lines: true
+
+  nahj_letters_sayings:
+    book_id: "nahj_letters_sayings"
+    title: "Nahj al-Balagha – Letters and Sayings"
+    author: "Imam Ali ibn Abi Talib"
+    compiler: "Al-Sharif al-Radi"
+    religion: "Islam"
+    tradition: "Shia"
+    language: "English (translated), Arabic (original)"
+    text_type: "letters_and_sayings"
+    description: >
+      Part Two of Nahj al-Balagha containing the letters and sayings of
+      Imam Ali. This EPUB contains clear section markers for each letter and saying.
+
+    ingestion:
+      file_type: "epub"
+      blob_path: "books/Nahjul Balagha Letters and sayings.epub"
+      section_detection: "heading_based"
+      section_types:
+        - letter
+        - saying
+      expected_heading_patterns:
+        - "Letter"
+        - "Saying"
+      include_arabic: true       # configurable per your preference
+      chunking:
+        method: "per_section"
+        max_chunk_size: 350       # letters may need smaller chunks
+        chunk_overlap: 60
+        clean_html: true
+        remove_page_numbers: true
+        remove_decorative_lines: true
