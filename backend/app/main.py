@@ -1,5 +1,7 @@
-def getNameWithAge(name: str, age: int):
-	name_with_age = name + ' is this old: ' + age
-	return name_with_age
+from fastapi import FastAPI
 
-print(getNameWithAge("Alice", 30))
+app = FastAPI()
+
+@app.get("/")
+def root():
+	return {"message": "App is running!"}
